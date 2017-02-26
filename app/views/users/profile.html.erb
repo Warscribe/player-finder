@@ -1,0 +1,31 @@
+<div class="w320 margin-auto">
+  <div class="flex jc-sb ai-c">
+    <h3>Profile</h3>
+    <%= link_to 'Edit', edit_user_registration_path, class: 'fs26' %>
+  </div>
+
+  <div class="py16">
+    <div class="fs13 grey-text text-darken-1 pb8">First Name</div>
+    <div><%= @user.first_name || 'Not set' %></div>
+  </div>
+
+  <div class="py16">
+    <div class="fs13 grey-text text-darken-1 pb8">Last Name</div>
+    <div><%= @user.last_name || 'Not set' %></div>
+  </div>
+
+  <div class="py16">
+    <div class="fs13 grey-text text-darken-1 pb8">Email</div>
+    <div><%= @user.email %></div>
+  </div>
+
+  <div class="py16">
+    <div class="fs13 grey-text text-darken-1 pb8">City</div>
+    <div><%= @user.city || 'Not set' %></div>
+  </div>
+
+  <div class="py16">
+    <div class="fs13 grey-text text-darken-1 pb8">Country</div>
+    <div><%= @user.country || 'Not set' %></div>
+  </div>
+</div>

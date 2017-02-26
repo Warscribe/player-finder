@@ -1,0 +1,6 @@
+@each $i in 13, 16, 20, 26, 38, 48, 96 {
+  $val: $i / 16;
+  .fs#{$i} {
+    font-size: #{$val}rem;
+  }
+}

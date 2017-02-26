@@ -1,0 +1,24 @@
+<div class="flash-message
+            abs
+            top-navbar
+            full-width
+            height-navbar
+            zi50
+            <%= success ? 'bg-success' : 'bg-error' %>">
+  <div class="abs
+              center
+              grey-text
+              text-lighten-5">
+    <%= message %>
+  </div>
+
+  <div class="abs
+              right-20
+              center-y
+              pointer
+              grey-text
+              text-lighten-5"
+       data-action="clear-flash">
+    <i class="material-icons">clear</i>
+  </div>
+</div>

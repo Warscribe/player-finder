@@ -1,0 +1,46 @@
+<div class="w320 margin-auto">
+  <h2>Edit Profile</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <div class="input-field rel">
+      <%= f.text_field :first_name %>
+      <%= f.label :first_name, class: (resource.first_name ? 'active' : '') %>
+      <span class="abs bot-0 fs13 red-text"><%= resource.errors[:first_name][0] %></span>
+    </div>
+
+    <div class="input-field rel">
+      <%= f.text_field :last_name %>
+      <%= f.label :last_name, class: (resource.last_name ? 'active' : '') %>
+      <span class="abs bot-0 fs13 red-text"><%= resource.errors[:last_name][0] %></span>
+    </div>
+
+    <div class="input-field rel">
+      <%= f.text_field :city %>
+      <%= f.label :city, class: (resource.city ? 'active' : '') %>
+      <span class="abs bot-0 fs13 red-text"><%= resource.errors[:city][0] %></span>
+    </div>
+
+    <div class="input-field rel">
+      <%= f.text_field :country %>
+      <%= f.label :country, class: (resource.country ? 'active' : '') %>
+      <span class="abs bot-0 fs13 red-text"><%= resource.errors[:country][0] %></span>
+    </div>
+
+    <div class="input-field rel">
+      <%= f.email_field :email  %>
+      <%= f.label :email, class: (resource.email ? 'active' : '') %>
+      <span class="abs bot-0 fs13 red-text"><%= resource.errors[:email][0] %></span>
+    </div>
+
+    <div class="input-field rel">
+      <%= f.password_field :current_password, autocomplete: "off" %>
+      <%= f.label :current_password %>
+      <span class="abs bot-0 fs13 red-text"><%= resource.errors[:current_password][0] %></span>
+    </div>
+
+    <div class="flex jc-sb pt16">
+      <div class="grey-text pr24">Current Password is required to update your profile</div>
+      <%= f.submit "Update", class: 'btn' %>
+    </div>
+  <% end %>
+</div>

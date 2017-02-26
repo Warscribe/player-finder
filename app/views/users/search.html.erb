@@ -1,0 +1,44 @@
+<div class="container py32">
+  <div class="py8 fs20">
+    Found <%= pluralize @users.size, 'player' %> within <%= @range %> miles of your location.
+  </div>
+  <% if @users.size > 0 %>
+    <div class="py8 fs16">
+      <% if user_signed_in? %>
+        We hope you found some new people. We encourage you to send them an email and let them know you're interested in playing!
+      <% else %>
+        You can only see limited information as a guest.
+         <%= link_to 'Sign Up here', new_user_registration_path(city: @city, country: @country) %> and join the community!
+      <% end %>
+    </div>
+    <ul class="collection">
+      <% @users.each do |user| %>
+        <li class="collection-item flex jc-sb ai-c">
+          <div>
+            <div>
+              <%= user.first_name %>
+              <%= user_signed_in? ? " #{user.last_name}" : '' %>
+            </div>
+            <% if user_signed_in? %>
+              <a href="mailto:<%= user.email %>"><%= user.email %></a>
+            <% end %>
+          </div>
+          <div>
+            <%= "#{user.city}, #{user.country}" %>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <div class="py8 fs16">
+      It looks like there aren't any players near this location.
+      <% unless user_signed_in? %>
+        <%= link_to 'Sign Up', new_user_registration_path(city: @city, country: @country) %> to add yourself to the map and make it easier for others to find you.
+      <% end %>
+      To grow our community, share a link to this website and encourage people to add their location!
+    </div>
+  <% end %>
+  <div class="flex fd-col ai-c my8">
+    <a href="<%= root_path %>" class='btn'>Search Again</a>
+  </div>
+</div>

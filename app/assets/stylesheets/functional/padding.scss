@@ -1,0 +1,28 @@
+@for $i from 1 through 8 {
+  $val: $i * 8;
+  .px#{$val} {
+    padding-left: #{$val}px;
+    padding-right: #{$val}px;
+  }
+
+  .py#{$val} {
+    padding-top: #{$val}px;
+    padding-bottom: #{$val}px;
+  }
+
+  .pt#{$val} {
+    padding-top: #{$val}px;
+  }
+
+  .pr#{$val} {
+    padding-right: #{$val}px;
+  }
+
+  .pb#{$val} {
+    padding-bottom: #{$val}px;
+  }
+
+  .pl#{$val} {
+    padding-left: #{$val}px;
+  }
+}

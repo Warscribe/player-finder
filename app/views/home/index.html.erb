@@ -1,0 +1,20 @@
+<div class="full-height full-width rel">
+  <div class="abs center br-small px16 py16 w320" data-city-card='true'>
+    <span class="fs20">Find players near:</span>
+    <%= form_tag users_search_path, method: 'get' do %>
+      <div class="input-field">
+        <%= text_field_tag :city %>
+        <%= label_tag :city %>
+      </div>
+      <div class="input-field">
+        <%= text_field_tag :country %>
+        <%= label_tag :country %>
+      </div>
+      <div class="input-field">
+        <%= text_field_tag :range, nil, placeholder: '20' %>
+        <%= label_tag :range, 'Range (in miles)', class: 'active' %>
+      </div>
+      <%= submit_tag 'Search', class: 'btn' %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+.flash-message {
+  transition: top .5s ease;
+  &.is-inactive {
+    top: 0px;
+  }
+}
