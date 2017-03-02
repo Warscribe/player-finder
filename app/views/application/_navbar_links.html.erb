@@ -1,13 +1,23 @@
-<li>
+<li class="<%= active_class(about_path) %>">
   <%= link_to 'About', about_path %>
 </li>
-  <% if user_signed_in? %>
-    <li><%= link_to 'Profile', user_profile_path %></li>
-  <% end %>
-<li>
-  <% if user_signed_in? %>
-    <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to 'Sign In', new_user_session_path %>
-  <% end %>
+<li class="<%= active_class(root_path) %>">
+  <%= link_to 'Search', root_path %>
 </li>
+<li class="<%= active_class(users_path) %>">
+  <%= link_to 'All Players', users_path %>
+</li>
+<% if user_signed_in? %>
+  <li class="<%= active_class(profile_users_path) %>">
+    <%= link_to 'Profile', profile_users_path %>
+  </li>
+<% end %>
+<% if user_signed_in? %>
+  <li>
+    <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+  </li>
+<% else %>
+  <li class="<%= active_class(new_user_session_path) %>">
+    <%= link_to 'Sign In', new_user_session_path %>
+  </li>
+<% end %>

@@ -14,8 +14,34 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require materialize-sprockets
+//= require chartkick
 //= require_tree .
 
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
+  $('.tooltipped').tooltip({ delay: 50 });
   $(".button-collapse").sideNav();
+
+  setTimeout(function() {
+    var chartkickChart = Chartkick.charts["users-chart"];
+    if(chartkickChart) {
+      var chart = chartkickChart.getChartObject();
+      var data = chartkickChart.getData();
+
+      if(chart) {
+        google.visualization.events.addListener(chart, 'click', function(data, e) {
+          var chartId = Number(/bar#0#(\d*)/.exec(e.targetID)[1]);
+          var cityName = data[0].data[chartId][0];
+          window.location.href = '/users/search?city=' + encodeURI(cityName);
+        }.bind(this, data));
+
+        google.visualization.events.addListener(chart, 'onmouseover', function(e) {
+          $('#users-chart').css('cursor', 'pointer');
+        });
+
+        google.visualization.events.addListener(chart, 'onmouseout', function(e) {
+          $('#users-chart').css('cursor', 'default');
+        });
+      }
+    }
+  }, 1000);
 });

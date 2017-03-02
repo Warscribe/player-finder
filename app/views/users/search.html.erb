@@ -15,10 +15,16 @@
       <% @users.each do |user| %>
         <li class="collection-item flex jc-sb ai-c">
           <div>
-            <div>
-              <%= user.first_name %>
-              <%= user_signed_in? ? " #{user.last_name}" : '' %>
-            </div>
+            <% if user.first_name %>
+              <div>
+                <%= user.first_name %>
+                <%= user_signed_in? ? " #{user.last_name}" : '' %>
+              </div>
+            <% else %>
+              <div>
+                Anonymous Player
+              </div>
+            <% end %>
             <% if user_signed_in? %>
               <a href="mailto:<%= user.email %>"><%= user.email %></a>
             <% end %>
@@ -39,6 +45,7 @@
     </div>
   <% end %>
   <div class="flex fd-col ai-c my8">
-    <a href="<%= root_path %>" class='btn'>Search Again</a>
+    <%= link_to 'Search Again', root_path, class: 'btn' %>
+    <%= link_to 'See All Players', users_path, class: 'btn mt16' %>
   </div>
 </div>

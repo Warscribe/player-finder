@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'users/registrations' }
 
-  get 'user/profile', to: 'users#profile'
-  get 'users/search', to: 'users#search'
+  resources :users, only: [:index] do
+    collection do
+      get 'profile'
+      get 'search'
+    end
+  end
 end

@@ -5,28 +5,28 @@
 @for $i from 1 through 8 {
   $val: $i * 8;
   .mx#{$val} {
-    padding-left: #{$val}px;
-    padding-right: #{$val}px;
+    margin-left: #{$val}px;
+    margin-right: #{$val}px;
   }
 
   .my#{$val} {
-    padding-top: #{$val}px;
-    padding-bottom: #{$val}px;
+    margin-top: #{$val}px;
+    margin-bottom: #{$val}px;
   }
 
   .mt#{$val} {
-    padding-top: #{$val}px;
+    margin-top: #{$val}px;
   }
 
   .mr#{$val} {
-    padding-right: #{$val}px;
+    margin-right: #{$val}px;
   }
 
   .mb#{$val} {
-    padding-bottom: #{$val}px;
+    margin-bottom: #{$val}px;
   }
 
   .ml#{$val} {
-    padding-left: #{$val}px;
+    margin-left: #{$val}px;
   }
 }

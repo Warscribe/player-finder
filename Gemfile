@@ -57,3 +57,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise', '~> 4.2.0'
 gem 'omniauth', '~> 1.6.1'
 gem 'geocoder', '~> 1.4.3'
+gem 'chartkick', '~> 2.2.3'

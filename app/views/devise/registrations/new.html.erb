@@ -33,15 +33,23 @@
       <span class="abs bot-0 fs13 red-text"><%= resource.errors[:password_confirmation][0] %></span>
     </div>
 
-    <div class="flex jc-sb">
-      <div class="pr40">
-        <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %>
+    <div class="flex jc-sb ai-c">
+      <div>
+        <%= f.check_box :email_list, checked: true %>
+        <%= f.label :email_list,
+            'Add me to the email list',
+            class: 'pl24 tooltipped',
+            data: { position: 'top', delay: 0, tooltip: 'Sign up to hear about updates to this app or any future projects we release. No spam, we promise!' } %>
       </div>
 
-      <div class="flex fd-col ai-c">
+      <div>
         <%= f.submit "Sign up", class: 'btn' %>
-        <%= link_to "Or, log in", new_session_path(resource_name), class: 'py8' %>
       </div>
+    </div>
+
+    <div class="flex jc-sb ai-c py8">
+      <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %>
+      <%= link_to "Or, log in", new_session_path(resource_name), class: 'py8 w80 ta-right' %>
     </div>
   <% end %>
 </div>

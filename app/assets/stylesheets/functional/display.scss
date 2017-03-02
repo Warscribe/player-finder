@@ -17,7 +17,7 @@
 
 // Width
 .full-width { width: 100%; }
-@each $i in 320 {
+@each $i in 80, 320 {
   .w#{$i} {
     width: #{$i}px;
   }
