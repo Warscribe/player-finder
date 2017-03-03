@@ -21,6 +21,11 @@ $(document).on('turbolinks:load', function() {
   $('.tooltipped').tooltip({ delay: 50 });
   $(".button-collapse").sideNav();
 
+  if(typeof ga === 'function') {
+    ga('create', 'UA-92678254-1', 'auto');
+    ga('send', 'pageview');
+  }
+
   setTimeout(function() {
     var chartkickChart = Chartkick.charts["users-chart"];
     if(chartkickChart) {
